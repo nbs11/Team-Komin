@@ -1,0 +1,9 @@
+﻿1. Starting with captivate eclair base, hopefully gingerbread later on if CM team can port it
+2. Major changes are +1 number release
+3. Minor changes are +0.1 number release
+4. Patches are +0.0.1 number release
+5. Only major releases will require a wipe.
+6. JF6 As base.
+7. Nice possible wallpaper made by ghost http://yfrog.com/5gteamkomin1j
+8. Xcalibur or Unhelpful Kernel (when we get permission and/or find a better one)
+1. After the ROM is stable, make a custom Komin Kernel

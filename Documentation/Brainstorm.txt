@@ -1,0 +1,64 @@
+﻿Brainstorming
+Key:   To be Implemented Later    Important
+ 
+Description:
+ 
+Features:
+1. Choose lockscreen (including our custom one in the future)
+1. Custom one would be like AOSP but with music/sms/call/ controls similar to puzzle screen
+1. Hold back button to close current app
+2. Launcher (Stock, LP, ADW) 
+3. Power Menu 
+4. Widget list (AppWidget Picker?)
+5. Keyboard choices (HTC Multitouch,GingeBread, Swype, Stock android 2.1)
+6. Hold headset button to launch google voice search
+7. Fix bug where pressing menu button will unlock aosp lockscreen
+8. New market app
+9. Custom boot sounds
+10. HSUPA (Just because it’s standard doesn’t make it not a feature...)
+ 
+Goals (In order of importance):
+1.   Stability
+2.   Speed (even w/o OC)
+3.   Battery (^ytt3r)
+4.   GPS (as good as it can get)
+5.   Good looking theme
+ 
+Tweaks:
+1.   Default to noop (least power consumption, potentially fastest)
+2.   Voodoo 5
+3.   BLN
+1. Blinky?
+1.   OC/UV Option
+ 
+Apps:
+1. DRM(Adjust the Samsung DRM to consume less battery-have to research this 1st)
+2. GPS collection to help improve the GPS (there’s someone in the forums that can do that with raw data, apparently)
+3. Voltage Control
+4.   OTA updates with Rom Manager(or our own app)
+5. Tasker-like program with built in task geared around ROM. 
+ 
+ 
+  Theme:
+1. Dark
+1. Gingerbread AOSP
+2. Glossy
+3. Matte
+1. AOSP (2.2)
+2. Custom font (?)
+ 
+Names for the ROM releases:
+1. Follow Google naming scheme
+1. Cheese (http://wiki.answers.com/Q/What_type_of_cheese_starts_with_an_A) 
+2. Dinosaurs
+3. Galaxies +2 http://messier.obspm.fr/xtra/supp/rasc-g-n.html 
+4. Stars
+ 
+Names for the team:
+1. Team Komin(conservative) +1
+ 
+Space on the interwebz
+1. Ferman’s site
+2. ytt3r’s sites
+3. pirateghost
+4. big_area has webspace
