@@ -16,6 +16,7 @@ Features:
 8. New market app
 9. Custom boot sounds
 10. HSUPA (Just because it’s standard doesn’t make it not a feature...)
+11. Print from phone 
  
 Goals (In order of importance):
 1.   Stability
