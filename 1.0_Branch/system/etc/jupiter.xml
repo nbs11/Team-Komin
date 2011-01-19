@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<glgps xmlns="http://www.glpals.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.glpals.com/ glconfig.xsd" >
+  <!--HAL Confguration  -->
+
+<hal 
+	  acPortName="/dev/s3c2410_serial1" lBaudRate="115200" bPrintToConsole="true" cLogEnabled="false" acLogDirectory="/sdcard/gps/log" ltoFileName="lto.dat" 
+       enhanced-assisted="true" cp-enhanced-assisted="false" TISEnabled="false" RILEnabled="true"
+       acEEDir="/data/gps/" acEEFileName="xtra.bin"
+       arp-supl-enable="true" arp-supl-cap-msb="true" arp-supl-cap-msa="false" arp-supl-cap-ecid="true" arp-supl-reaiding-time-sec = "600"
+	   acSuplServer="h-slp.mnc410.mcc310.pub.3gppnetwork.org" SuplPort="7275" tlsCertPath="/system/bin/gpsd/"
+       LbsEnable="true" LbsLocal="true" LbsServer="bcmls2.glpals.com" LbsPort="7275" LbsSyncTimeSec = "60" LbsSyncLto="true" LbsSyncCells="true"
+
+       acNmeaOutName="/data/gpspipe"  
+       gpioNStdbyPath="/sys/class/sec/gps/GPS_PWR_EN/value"
+       gpioNResetPath="/sys/class/sec/gps/GPS_nRST/value" 
+       gpioDelayMs="250"
+       ctrlPipe="/data/gps/glgpsctrl"
+       lcsApiSockName="/data/gps/lcs.socket" 
+       acNvStoDir="/data/gps/"
+       />
+
+  <!-- NOTE: BrcmRFwildBase, BrcmRFclkDiv, anBrcmRFclkRefHz only needed for Broadcom RF front end test chips
+            ( i.e. GL_RF_2075_BRCM and GL_RF_PALS7_BRCM ) -->
+
+       <!-- Possible Values for Loggging: LOG_EMERG | LOG_ALERT | LOG_CRIT | LOG_ERR | LOG_WARNING | LOG_NOTICE | LOG_INFO | LOG_DEBUG | LOG_GLLAPI | LOG_NMEA | LOG_RAWDATA | LOG_ASIC_IO | LOG_RF_DEBUG | LOG_BBTEST | LOG_DEVCV | LOG_DEVET | LOG_DEVJG | LOG_DEVIA | LOG_DEVKF | LOG_DEVMR | LOG_DEVMS | LOG_DEVSP | LOG_DEVDH | LOG_DEVRA | LOG_DEVRS | LOG_DEVVG | LOG_USR1 | LOG_USR2 | LOG_USR3 | LOG_USR4 | LOG_USR5 | LOG_USR6 | LOG_UNITTEST | LOG_DEFAULT
+	        Use with bPrintToConsole="true" cLogEnabled="true" acLogDirectory="/sdcard/gps/log" -->
+	   <!-- LOG_DEVVG output: GetSigMeasForClockModel:: SvId 23 Snr 0.000000 mode 1  accepted! -->
+	   <!-- LOG_DEVRA output: GlMeasEng::EnableLowPowerExt(F) GlMechanMgr::UpdateTo12Chan() - Update to 12 full channels 
+	   AcqMgr::LogAgc() vga_ctrl=0x18 agc=9 -->
+	   <!-- LOG_DEVDH output: Raw calculation data (large log) -->
+	   <!-- LOG_DEVMS output: Raw calculation data (large log) -->
+	   <!-- LOG_DEVMR output: #240355D BlndMgr TerminateSearches(2) #240366D BlndMgr(otLstOfSvIdScanNonTrk:686): #240366D BlndMgr(otLstOfSvIdDrillNonTrk:687): #240367D BlndMgr(otSvIdKillLst:691): -->
+	   <!-- LOG_DEVKF output: Fix Data (Lat, Long, Alt, Estimated Accuracy -->
+	   <!-- LOG_DEVIA output: SNR, Latency, Vector, Measurement (large log) -->	   
+	   <!-- LOG_DEVJG output: Per channel SNR, Latency, Vector, Measurement (large log) -->	 
+	   <!-- LOG_DEVET output: TCXO calibration data, Doppler calculations (large log) -->
+	   <!-- LOG_DEVCV output: SATAID data, Oscillator data -->
+	   <!-- LOG_DEFAULT output: All on! Realllllllllllllllllly Big! -->
+       <!-- Possible FrqPlan Values: FREQ_PLAN_10MHZ_2PPM FRQ_PLAN_12MHZ_2PPM FRQ_PLAN_13MHZ_2PPM FRQ_PLAN_14_4MHZ_2PPM FRQ_PLAN_15_36MHZ_2PPM FRQ_PLAN_16_2MHZ_2PPM FRQ_PLAN_16_367667MHZ_2PPM FRQ_PLAN_16_369MHZ_2PPM FRQ_PLAN_16_8MHZ_2PPM FRQ_PLAN_19_2MHZ_2PPM FRQ_PLAN_19_68MHZ_2PPM FRQ_PLAN_19_8MHZ_2PPM FRQ_PLAN_20MHZ_2PPM -->
+	   <!-- FRQ_PLAN_26MHZ_2PPM FRQ_PLAN_33_6MHZ_2PPM FRQ_PLAN_38_4MHZ_2PPM FRQ_PLAN_52MHZ_2PPM FRQ_PLAN_10MHZ_2PPM_10MHZ_100PPB FRQ_PLAN_16_367667MHZ_2PPM_26MHZ_100PPB FRQ_PLAN_16_369MHZ_2PPM_26MHZ_100PPB FRQ_PLAN_16_8MHZ_2PPM_10MHZ_100PPB -->
+	   <!-- FRQ_PLAN_16_8MHZ_2PPM_13MHZ_100PPB FRQ_PLAN_16_8MHZ_2PPM_26MHZ_100PPB FRQ_PLAN_19_2MHZ_2PPM_26MHZ_100PPB FRQ_PLAN_26MHZ_2PPM_10MHZ_100PPB FRQ_PLAN_26MHZ_2PPM_26MHZ_100PPB FRQ_PLAN_33_6MHZ_2PPM_26MHZ_100PPB FRQ_PLAN_10MHZ_2PPM_10MHZ_300PPB FRQ_PLAN_16_367667MHZ_2PPM_26MHZ_300PPB -->
+	   <!-- FRQ_PLAN_16_369MHZ_2PPM_10MHZ_300PPB FRQ_PLAN_16_369MHZ_2PPM_26MHZ_300PPB	   FRQ_PLAN_16_8MHZ_2PPM_10MHZ_300PPB FRQ_PLAN_16_8MHZ_2PPM_13MHZ_300PPB FRQ_PLAN_16_8MHZ_2PPM_26MHZ_300PPB FRQ_PLAN_19_2MHZ_2PPM_26MHZ_300PPB -->
+	   <!-- FRQ_PLAN_26MHZ_2PPM_10MHZ_300PPB FRQ_PLAN_26MHZ_2PPM_26MHZ_300PPB FRQ_PLAN_26MHZ_2PPM_26MHZ_300PPB_UNSTABLE FRQ_PLAN_26MHZ_2PPM_1_625MHZ_300PPB FRQ_PLAN_26MHZ_2PPM_38_4MHZ_300PPB -->
+	   <!-- Possible RfType Values: GL_RF_UNKNOWN GL_RF_PALS7 GL_RF_BARRACUDA GL_RF_2075_LN22 GL_RF_2075_BRCM GL_RF_2076_BRCM GL_RF_PALS7_BRCM GL_RF_BARRACUDA_BRCM GL_RF_BARRACUDA_EXT_LNA GL_RF_BARRACUDA_BRCM_EXT_LNA GL_RF_4751_BLUEFIN GL_RF_4751_DANUBE GL_RF_4751_DANUBE_EXT_LNA GL_RF_2075_ALADDIN GL_RF_2075B0_BRCM -->
+	   <!-- Possible RfAtt Values: GL_RF_ATT_DISABLED GL_RF_ATT_3DB GL_RF_ATT_6DB GL_RF_ATT_9DB GL_RF_ATT_12DB GL_RF_ATT_15DB GL_RF_ATT_18DB -->
+	   
+  <!-- Parameters passed to GlEngine   -->
+	   
+       <!-- LogPriMask="LOG_EMERG | LOG_ALERT | LOG_CRIT | LOG_ERR | LOG_WARNING | LOG_NOTICE | LOG_INFO | LOG_DEBUG | LOG_GLLAPI | LOG_DEVKF | LOG_DEVCV"
+            LogFacMask="LOG_EMERG | LOG_ALERT | LOG_CRIT | LOG_ERR | LOG_WARNING | LOG_NOTICE | LOG_INFO | LOG_DEBUG | LOG_GLLAPI | LOG_DEVKF | LOG_DEVCV" -->
+       <!-- Possible DynMode values: DYN_AUTOMATIC DYN_PEDESTRIAN DYN_VEHICLE -->
+  <gll 
+       FrqPlan="FRQ_PLAN_26MHZ_2PPM_26MHZ_300PPB_UNSTABLE"   
+       DynMode="DYN_PEDESTRIAN"
+       RfType="GL_RF_4751_DANUBE"
+       RfAtt="GL_RF_ATT_DISABLED"
+       pps-enable="false" pps-offset-ms="0" pps-width-ns="100"
+       WarmStandbyTimeout1Seconds="2"
+       WarmStandbyTimeout2Seconds="4"
+       CNoSmoothEnable="true"
+    >   
+    <periodic_hor_acc_remap>
+        <remap in="50" out="55" />
+    </periodic_hor_acc_remap>  
+  </gll>
+  
+  <!-- List of jobs can be performed by the GPS controller    -->
+
+  <!-- The default job  all parameters are set to default values  -->
+  
+  <job id="normal">
+      <task >
+      	<startup ignore_pos="false" ignore_nav="false" ignore_time="false" ignore_ram_alm="false" ignore_osc="false" ignore_lto="false" ignore_rom_alm="false" ignore_iono="false" ignore_utc="false" ignore_uid="false" />
+		<features enable_low_power="false" sbas_priority="true" enable_stitching="true" enable_false_alarms="false" enable_hahm_mode="false" enable_propagate1s="false" enable_low_power_ext="false" />
+      </task>
+    </job>
+
+    <job id="cold-single-supl">
+    <task id="sg_a50_t20">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+      <startup ignore_time="true" ignore_osc="false" ignore_pos="true" ignore_nav="true" ignore_ram_alm="true" ignore_rom_alm="true" />
+      <!--req_pos_single acc="50" timeout="20" /-->
+      <req_pos_single acc="50" timeout="20" />
+    </task>
+  </job>
+
+  <!-- Job to test frequency aiding   -->
+    <job id="freq-aid-test">
+        <task>
+            <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+            <startup ignore_osc="true"  />
+            <asst>
+                <freq offst_ppb="0" unc_ppb="500" />
+            </asst>
+            <req_pos />
+        </task>
+    </job>
+
+    <!-- Job to perform 3GPP moving testing, periodic mode  -->
+  <job id="sim-cold-auto">
+    <task id="periodic-eph-tm-clk" repeat="10">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+      <startup ignore_osc="true"  ignore_rom_alm="true"  ignore_nav="true" ignore_pos="false" ignore_ram_alm="true" ignore_time="false"/>
+      <req_pos />
+    </task>
+  </job>
+
+    <!-- Job to perform 3GPP moving testing, periodic mode  -->
+  <job id="sim-need-bit">
+    <task id="periodic" repeat="20">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+      <startup ignore_rom_alm="true" ignore_pos="true" ignore_ram_alm="true"/>
+      <req_pos period="1000" fixcount="100" validfix="10"/>
+    </task>
+  </job>
+
+    <!-- Job to perform 3GPP moving testing, periodic mode  -->
+    <job id="sim-bit-wipeoff">
+        <task id="periodic" repeat="20">
+          <startup ignore_rom_alm="true" ignore_ram_alm="true" ignore_time="true"/>
+          <asst>
+            <pos Lat="33.75" Lon="-84.3833333" Alt="300" />
+          </asst>            
+          <req_pos />
+        </task>
+    </job>
+
+  <!-- Job to perform 3GPP moving testing, periodic mode  -->
+  <job id="sim-utc-check">
+    <task id="periodic" repeat="20">
+      <startup ignore_rom_alm="true" ignore_ram_alm="true" ignore_time="true"/>
+      <asst>
+        <pos Lat="33.75" Lon="-84.3833333" Alt="300" />
+      </asst>        
+      <req_pos />
+    </task>
+  </job>  
+
+  <!-- Job to perform 3GPP testing, sigle shot mode  -->
+  <job id="sim-cold-single">
+    <task id="sg_a50_t20" repeat="10">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+      <startup ignore_rom_alm="true" ignore_ram_alm="true" />
+      <asst>
+        <!--pos Lat="-30.0" Lon="-50.0" Alt="50" /-->
+        <!--pos Lat="33.75" Lon="-84.3833" Alt="300" /-->
+        <!--pos Lat="37.0" Lon="-122.0" Alt="50" /-->
+        <!--pos Lat="37.26533652" Lon="-121.94128855" Alt="51.4" /-->
+      </asst>
+      <!--req_pos_single acc="50" timeout="20" /-->
+      <req_pos_single acc="50" timeout="20" />
+    </task>
+  </job>
+   
+    <!-- Job to perform 3GPP testing, sigle shot mode  -->
+    <job id="sim-single">
+        <task id="sg_a50_t20" repeat="10">
+            <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+            <startup ignore_rom_alm="true" ignore_ram_alm="true" ignore_osc="true"/>
+            <asst>              
+                <!--pos Lat="33.7691" Lon="-84.4062" Alt="0" /-->
+                <!--pos Lat="-30.0" Lon="-50.0" Alt="50" /-->
+                <pos Lat="33.75" Lon="-84.3833333" Alt="300" />
+                <!--pos Lat="37.0" Lon="-122.0" Alt="50" /-->
+                <!--pos Lat="37.26533652" Lon="-121.94128855" Alt="51.4" /-->
+            </asst>
+            <req_asst  />
+            <req_pos_single acc="50" timeout="23" />
+        </task>
+    </job>
+    
+  <!-- Job to perform 3GPP testing, sigle shot mode  -->
+  <job id="sim-cold-single_foff">
+    <task id="sg_a50_t20" repeat="10">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+      <startup ignore_rom_alm="true" ignore_ram_alm="true" ignore_osc="true" />
+      <asst>
+        <!--pos Lat="-30.0" Lon="-50.0" Alt="50" /-->
+        <!--pos Lat="33.75" Lon="-84.3833" Alt="300" /-->
+        <!--pos Lat="37.0" Lon="-122.0" Alt="50" /-->
+        <!--pos Lat="37.26533652" Lon="-121.94128855" Alt="51.4" /-->
+      </asst>
+      <!--req_pos_single acc="50" timeout="20" /-->
+      <req_pos_single acc="50" timeout="20" />
+    </task>
+  </job>
+
+  <!-- Job to perform 3GPP moving testing, periodic mode  -->
+  <job id="sim-ass-auto">
+    <task id="periodic" repeat="10">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+        <startup ignore_rom_alm="true" ignore_ram_alm="true" ignore_time="true" ignore_osc="true"/>
+        <asst>
+        <pos Lat="33.75000" Lon="-84.38330" Alt="300" />
+        <!--pos Lat="33.76910" Lon="-84.40620" Alt="300" /-->
+        <!--pos Lat="37.0" Lon="-122.0" Alt="50" /-->
+        <!--pos Lat="37.26533652" Lon="-121.94128855" Alt="51.4" /-->
+      </asst>
+      <req_pos />
+    </task>
+  </job>
+
+  <!-- Job to perform 3GPP moving testing, periodic mode  -->
+  <job id="sim-low-tow">
+    <task id="periodic" repeat="10">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+      <startup ignore_rom_alm="true" ignore_ram_alm="true" rtc_error_ms="-2000"/>
+      <asst>
+        <pos Lat="33.75000" Lon="-84.38330" Alt="300" />
+        <!--pos Lat="33.76910" Lon="-84.40620" Alt="300" /-->
+        <!--pos Lat="37.0" Lon="-122.0" Alt="50" /-->
+        <!--pos Lat="37.26533652" Lon="-121.94128855" Alt="51.4" /-->
+      </asst>
+      <req_pos />
+    </task>
+  </job>
+
+    <!-- Job to perform 3GPP moving testing, periodic mode  -->
+    <job id="sim-syncin-test">
+        <task id="periodic" repeat="10">
+            <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+            <startup ignore_rom_alm="true" ignore_ram_alm="true" ignore_time="true"/>
+            <asst>
+                <!--pos Lat="-30.0" Lon="-50.0" Alt="50" /-->
+                <!--pos Lat="33.75" Lon="-84.3833333" Alt="300" /-->
+                <!--pos Lat="37.0" Lon="-122.0" Alt="50" /-->
+                <pos Lat="37.26533652" Lon="-121.94128855" Alt="51.4" />
+            </asst>
+            <req_pos />
+        </task>
+    </job>    
+
+  <!-- Job to perform single shot testing   -->
+  <job id="single-shot">
+    <task id="shot" repeat="50">
+      <startup ignore_rom_alm="true" ignore_ram_alm="true" ignore_time="false" ignore_osc="true"/>
+      <asst>
+        <pos Lat="33.76910" Lon="-84.40620" Alt="300" />
+        <!--pos Lat="33.75000" Lon="-84.38330" Alt="300" /-->
+      </asst>
+      <!-- Ask GLL what assitance data is required  -->
+      <req_asst  />
+      <req_pos_single acc="50" timeout="60" />
+    </task>
+  </job>
+
+  <!-- Job  to perform CNTIN  testing   -->
+  <job id="cntin-test">
+    <!-- This task requests the CNTIN to be performed   -->
+    <task id="cntin" repeat="10">
+      <!-- Instructs GLL to ignore frequency read from NVSTORAGE -->
+      <startup ignore_osc="true"  />
+      <req_cntin />
+    </task>
+  </job>
+
+  <!-- Job  to perform autonomus mode testing   -->
+  <job id="auton-start">
+    <task id="factory" repeat="15">
+      <!-- Instructs GLL to ignore all elements stored in NVRAM listed below -->
+      <startup ignore_time="true" ignore_osc="true" ignore_pos="true" ignore_nav="true" ignore_ram_alm="false" ignore_rom_alm="true" />
+      <features sbas_priority="disabled"/>
+      <!-- Do this test in periodic mode  -->
+      <!-- Stop if we got either 100 any fixes or one valid  -->
+      <req_pos period="1000" fixcount="500" validfix="500" />
+    </task>
+  </job>
+
+    <!-- Job to perform factory testing with the Simulator output set to -130 dBm  -->
+    <job id="factory-high-snr">
+        <task id="test" repeat="1">
+            <!-- Instructs GLL to ignore all elements stored in NVRAM listed below -->
+            <startup ignore_osc="true" ignore_time="true" ignore_pos="true" ignore_nav="true" ignore_ram_alm="true" ignore_rom_alm="true" />
+            <req_ftest PRN="1" GL_FACT_TEST_MODE="GL_FACT_TEST_CONT"  GL_FACT_TEST_ITEMS="GL_FACT_TEST_WER" avg_int_sec="10" duration_sec="60" />
+        </task>
+    </job>
+
+    <!-- Job to perform factory testing with the Simulator output set to -150 dBm  -->
+    <job id="factory-low-snr">
+        <task id="test" repeat="1">
+            <startup ignore_osc="false" ignore_time="true" ignore_pos="true" ignore_nav="true" ignore_ram_alm="true" ignore_rom_alm="true"/>
+            <req_ftest PRN="9" GL_FACT_TEST_MODE="GL_FACT_TEST_CONT"  GL_FACT_TEST_ITEMS="GL_FACT_TEST_FRQ" avg_int_sec="10" duration_sec="60" />
+        </task>
+    </job>
+
+    <!-- Job  to perform RF false alarm test  -->
+    <job id="false-alarm-test">
+        <task >
+            <startup ignore_time="true" ignore_osc="true" ignore_pos="true" ignore_nav="true" ignore_ram_alm="true" ignore_rom_alm="true" />
+            <features enable_false_alarms="true"/>
+            <req_pos />
+        </task>
+    </job>
+    
+    <!-- Job  to perform platform testing   -->
+    <job id="platform-test">
+        <task id="factory" >
+            <!-- Instructs GLL to ignore all elements stored in NVRAM listed below -->
+            <startup ignore_time="true" ignore_osc="true" ignore_pos="true" ignore_nav="true" ignore_ram_alm="true" ignore_rom_alm="true" />
+            <!-- Do this test in periodic mode  -->
+            <!-- Stop if we got either 100 any fixes or one valid  -->
+            <req_pos period="1000" fixcount="600" validfix="1" />
+
+        </task>
+        <task id="warm" repeat="1">
+            <!-- Instructs GLL to ignore all elements stored in NVRAM listed below -->
+            <startup ignore_nav="true" />
+            <!-- Do this test in periodic mode  -->
+            <!-- Stop if we got either 100 any fixes or one valid  -->
+            <req_pos period="1000" fixcount="600" validfix="600"/>
+        </task>
+    </job>
+
+  <job id="perso">
+    <task repeat="1">
+        <startup ignore_rom_alm="true"  />
+        <features  enable_low_power="true"/>
+        <req_pos />
+    </task>
+  </job>
+
+</glgps>

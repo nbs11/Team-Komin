@@ -1,0 +1,6 @@
+2
+com.sec.android.app.sns/snsDB.db
+4
+com.android.providers.contacts/contacts2.db
+3
+
